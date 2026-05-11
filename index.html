@@ -21,7 +21,6 @@
 
         body {
             font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-            /* Premium Dark Gradient Background */
             background: radial-gradient(circle at top right, #1a1a1a, #000000);
             color: #e0e0e0;
             line-height: 1.6;
@@ -117,7 +116,6 @@
 
         .description { color: #bbb; margin-bottom: 25px; }
 
-        /* LIST HIGHLIGHTS */
         .features { list-style: none; margin-bottom: 30px; }
         .features li { 
             margin-bottom: 10px; 
@@ -131,12 +129,12 @@
             color: var(--primary-gold);
         }
 
-        /* FLASHING & HIGHLIGHTED BUTTONS */
+        /* BUTTONS */
         .buttons { display: flex; gap: 20px; flex-wrap: wrap; }
         
         button {
             position: relative;
-            overflow: hidden; /* For the sweep highlight */
+            overflow: hidden;
             padding: 16px 35px;
             border: none;
             border-radius: 50px;
@@ -147,7 +145,6 @@
             text-transform: uppercase;
         }
 
-        /* Flashing Buy Button */
         .buy {
             background: linear-gradient(45deg, #d4af37, #f2d06b);
             color: #000;
@@ -161,7 +158,6 @@
             100% { box-shadow: 0 0 0 0 rgba(212, 175, 55, 0); }
         }
 
-        /* Sweeping Highlight Effect */
         button::after {
             content: '';
             position: absolute;
@@ -171,7 +167,6 @@
             height: 200%;
             background: rgba(255, 255, 255, 0.4);
             transform: rotate(30deg);
-            transition: none;
             animation: sweep 3s infinite;
         }
 
@@ -191,15 +186,23 @@
             color: #000;
         }
 
-        /* INFO SECTION */
-        .info-section {
+        /* INFO SECTION (Hidden by default) */
+        #infoSection {
+            display: none; /* Initial state hidden */
             margin-top: 40px;
             background: var(--glass-bg);
             padding: 40px;
             border-radius: 20px;
             border: 1px solid rgba(255,255,255,0.1);
+            animation: fadeIn 0.8s ease forwards;
         }
-        .info-section h2 { color: var(--primary-gold); margin-bottom: 20px; }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        #infoSection h2 { color: var(--primary-gold); margin-bottom: 20px; }
 
         footer {
             margin-top: 60px;
@@ -210,7 +213,6 @@
             text-align: center;
         }
 
-        /* Responsive */
         @media(max-width:768px){
             .product-section { padding: 20px; }
             .product-title { font-size: 32px; }
@@ -225,7 +227,6 @@
 
 <div class="container">
     <div class="product-section">
-        <!-- IMAGE GALLERY -->
         <div class="gallery">
             <div class="main-image">
                 <img id="mainProductImage" src="Gajra.jpg" alt="Hair Bun Gajra">
@@ -237,7 +238,6 @@
             </div>
         </div>
 
-        <!-- PRODUCT DETAILS -->
         <div class="product-details">
             <div class="brand">Exquisite Collection</div>
             <h1 class="product-title">Handcrafted Hair Bun / Gajra</h1>
@@ -261,13 +261,13 @@
             </ul>
 
             <div class="buttons">
-                <button class="buy">Buy Now</button>
-                <button class="contact">Contact Seller</button>
+                <button class="buy" onclick="revealInfo()">Buy Now</button>
+                <button class="contact" onclick="revealInfo()">Contact Seller</button>
             </div>
         </div>
     </div>
 
-    <div class="info-section">
+    <div id="infoSection" class="info-section">
         <h2>The Artistry</h2>
         <p>Each piece at <strong>Sankari Saajghar</strong> is carefully curated to ensure you feel like royalty. Our floral buns are durable, designed to maintain their pristine look across multiple celebrations.</p>
         <br>
@@ -275,8 +275,7 @@
             <p><strong>Boutique Address:</strong></p>
             <p style="color: var(--primary-gold);">AD Nagar, Surjopara, Road No 7,<br>
             Near Sangasree Club, Agartala, Tripura – 799003, </p>
-<p>📧 sankarideb1@gmail.com  📱8787865648
-</p>
+            <p>📧 sankarideb1@gmail.com &nbsp;&nbsp; 📱8787865648</p>
         </div>
     </div>
 </div>
@@ -286,14 +285,18 @@
 </footer>
 
 <script>
+    // Reveal info section function
+    function revealInfo() {
+        const info = document.getElementById('infoSection');
+        info.style.display = 'block';
+        // Smooth scroll to the info section
+        info.scrollIntoView({ behavior: 'smooth' });
+    }
+
     function changeImage(element, src){
         document.getElementById("mainProductImage").src = src;
-        
-        // Remove active class from all thumbnails
         let thumbnails = document.querySelectorAll('.thumbnail-container img');
         thumbnails.forEach(img => img.classList.remove('active'));
-        
-        // Add active class to clicked thumbnail
         element.classList.add('active');
     }
 </script>
