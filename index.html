@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sankari Saajghar | Premium Hair Bun / Gajra</title>
+    <style>
+        :root {
+            --primary-gold: #d4af37;
+            --dark-gold: #b8860b;
+            --accent-glow: rgba(212, 175, 55, 0.4);
+            --bg-dark: #0f0f0f;
+            --glass-bg: rgba(255, 255, 255, 0.05);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            /* Premium Dark Gradient Background */
+            background: radial-gradient(circle at top right, #1a1a1a, #000000);
+            color: #e0e0e0;
+            line-height: 1.6;
+        }
+
+        /* PREMIUM HEADER */
+        header {
+            background: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(10px);
+            padding: 20px 30px;
+            border-bottom: 1px solid var(--dark-gold);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            text-align: center;
+        }
+
+        .logo {
+            font-size: 32px;
+            font-weight: bold;
+            letter-spacing: 2px;
+            background: linear-gradient(to right, #fbf5e6, #d4af37, #fbf5e6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-transform: uppercase;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: auto;
+            padding: 40px 20px;
+        }
+
+        /* GLASSMORPHISM CARD */
+        .product-section {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 40px;
+            background: var(--glass-bg);
+            backdrop-filter: blur(5px);
+            padding: 40px;
+            border-radius: 20px;
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+
+        /* IMAGE GALLERY */
+        .gallery { flex: 1; min-width: 300px; }
+        .main-image img {
+            width: 100%;
+            border-radius: 15px;
+            border: 1px solid var(--dark-gold);
+            transition: transform 0.5s ease;
+        }
+        .main-image img:hover { transform: scale(1.02); }
+
+        .thumbnail-container {
+            display: flex;
+            gap: 15px;
+            margin-top: 15px;
+        }
+        .thumbnail-container img {
+            width: 80px;
+            height: 80px;
+            object-fit: cover;
+            border-radius: 8px;
+            cursor: pointer;
+            border: 2px solid transparent;
+            opacity: 0.6;
+            transition: 0.3s;
+        }
+        .thumbnail-container img:hover, .thumbnail-container img.active {
+            border: 2px solid var(--primary-gold);
+            opacity: 1;
+            box-shadow: 0 0 10px var(--primary-gold);
+        }
+
+        /* PRODUCT DETAILS */
+        .product-details { flex: 1; min-width: 300px; }
+        .brand { color: var(--primary-gold); text-transform: uppercase; letter-spacing: 1px; font-weight: bold; }
+        .product-title { font-size: 42px; margin-bottom: 10px; color: #fff; }
+        .rating { color: #ffd700; margin-bottom: 20px; font-size: 18px; }
+
+        .price-box {
+            background: rgba(212, 175, 55, 0.1);
+            padding: 20px;
+            border-left: 4px solid var(--primary-gold);
+            border-radius: 5px;
+            margin-bottom: 25px;
+        }
+        .price-box h3 { color: #fff; margin-bottom: 10px; }
+        .price-box p { font-size: 20px; color: var(--primary-gold); font-weight: bold; }
+
+        .description { color: #bbb; margin-bottom: 25px; }
+
+        /* LIST HIGHLIGHTS */
+        .features { list-style: none; margin-bottom: 30px; }
+        .features li { 
+            margin-bottom: 10px; 
+            padding-left: 25px; 
+            position: relative; 
+        }
+        .features li::before {
+            content: '✦';
+            position: absolute;
+            left: 0;
+            color: var(--primary-gold);
+        }
+
+        /* FLASHING & HIGHLIGHTED BUTTONS */
+        .buttons { display: flex; gap: 20px; flex-wrap: wrap; }
+        
+        button {
+            position: relative;
+            overflow: hidden; /* For the sweep highlight */
+            padding: 16px 35px;
+            border: none;
+            border-radius: 50px;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.4s;
+            text-transform: uppercase;
+        }
+
+        /* Flashing Buy Button */
+        .buy {
+            background: linear-gradient(45deg, #d4af37, #f2d06b);
+            color: #000;
+            box-shadow: 0 0 15px var(--accent-glow);
+            animation: pulse-gold 2s infinite;
+        }
+
+        @keyframes pulse-gold {
+            0% { box-shadow: 0 0 0 0 rgba(212, 175, 55, 0.7); }
+            70% { box-shadow: 0 0 0 15px rgba(212, 175, 55, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(212, 175, 55, 0); }
+        }
+
+        /* Sweeping Highlight Effect */
+        button::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -60%;
+            width: 20%;
+            height: 200%;
+            background: rgba(255, 255, 255, 0.4);
+            transform: rotate(30deg);
+            transition: none;
+            animation: sweep 3s infinite;
+        }
+
+        @keyframes sweep {
+            0% { left: -60%; }
+            20% { left: 120%; }
+            100% { left: 120%; }
+        }
+
+        .contact {
+            background: transparent;
+            color: #fff;
+            border: 1px solid var(--primary-gold);
+        }
+        .contact:hover {
+            background: var(--primary-gold);
+            color: #000;
+        }
+
+        /* INFO SECTION */
+        .info-section {
+            margin-top: 40px;
+            background: var(--glass-bg);
+            padding: 40px;
+            border-radius: 20px;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+        .info-section h2 { color: var(--primary-gold); margin-bottom: 20px; }
+
+        footer {
+            margin-top: 60px;
+            background: #000;
+            padding: 40px;
+            border-top: 1px solid var(--dark-gold);
+            color: #666;
+            text-align: center;
+        }
+
+        /* Responsive */
+        @media(max-width:768px){
+            .product-section { padding: 20px; }
+            .product-title { font-size: 32px; }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="logo">Sankari Saajghar</div>
+</header>
+
+<div class="container">
+    <div class="product-section">
+        <!-- IMAGE GALLERY -->
+        <div class="gallery">
+            <div class="main-image">
+                <img id="mainProductImage" src="image1.jpg" alt="Hair Bun Gajra">
+            </div>
+            <div class="thumbnail-container">
+                <img src="image1.jpg" onclick="changeImage(this, this.src)" class="active">
+                <img src="image2.jpg" onclick="changeImage(this, this.src)">
+                <img src="image3.jpg" onclick="changeImage(this, this.src)">
+            </div>
+        </div>
+
+        <!-- PRODUCT DETAILS -->
+        <div class="product-details">
+            <div class="brand">Exquisite Collection</div>
+            <h1 class="product-title">Handcrafted Hair Bun / Gajra</h1>
+            <div class="rating"> ★ ★ ★ ★ ★ <span style="color:#fff; font-size: 14px; margin-left: 10px;">PREMIUM QUALITY</span></div>
+            
+            <div class="price-box">
+                <h3>Investment in Elegance</h3>
+                <p>Medium Off White: ₹170/-</p>
+                <p>Large Off White: ₹250/-</p>
+            </div>
+
+            <div class="description">
+                A masterpiece of traditional craftsmanship. This gajra is designed to bring a royal touch to your attire, whether it's a wedding, temple visit, or a classical dance performance.
+            </div>
+
+            <ul class="features">
+                <li>Everlasting Reusable Design</li>
+                <li>Gentle & Washable Fabric</li>
+                <li>Weightless Comfort for Long Hours</li>
+                <li>Radiant Traditional Aesthetic</li>
+            </ul>
+
+            <div class="buttons">
+                <button class="buy">Buy Now</button>
+                <button class="contact">Contact Seller</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="info-section">
+        <h2>The Artistry</h2>
+        <p>Each piece at <strong>Sankari Saajghar</strong> is carefully curated to ensure you feel like royalty. Our floral buns are durable, designed to maintain their pristine look across multiple celebrations.</p>
+        <br>
+        <div style="border-top: 1px solid #333; padding-top: 20px;">
+            <p><strong>Boutique Address:</strong></p>
+            <p style="color: var(--primary-gold);">AD Nagar, Surjopara, Road No 7,<br>
+            Near Sangasree Club, Agartala, Tripura – 799003, </p>
+<p>📧 sankarideb1@gmail.com  📱8787865648
+</p>
+        </div>
+    </div>
+</div>
+
+<footer>
+    © 2026 Sankari Saajghar | Crafted with Tradition
+</footer>
+
+<script>
+    function changeImage(element, src){
+        document.getElementById("mainProductImage").src = src;
+        
+        // Remove active class from all thumbnails
+        let thumbnails = document.querySelectorAll('.thumbnail-container img');
+        thumbnails.forEach(img => img.classList.remove('active'));
+        
+        // Add active class to clicked thumbnail
+        element.classList.add('active');
+    }
+</script>
+
+</body>
+</html>
