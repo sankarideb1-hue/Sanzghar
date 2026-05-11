@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Brand Recognition | Sankari Saajghar</title>
+    <style>
+        :root {
+            --primary-gold: #d4af37;
+            --bg-dark: #0f0f0f;
+        }
+
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background: radial-gradient(circle at center, #1a1a1a, #000);
+            color: #fff;
+            margin: 0;
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-bottom: 30px;
+            color: var(--primary-gold);
+            text-decoration: none;
+            border: 1px solid var(--primary-gold);
+            padding: 8px 20px;
+            border-radius: 50px;
+            transition: 0.3s;
+        }
+
+        .back-link:hover {
+            background: var(--primary-gold);
+            color: #000;
+        }
+
+        h1 {
+            font-weight: 300;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            margin-bottom: 50px;
+            background: linear-gradient(to right, #fff, var(--primary-gold), #fff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .brand-card {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            border-radius: 15px;
+            overflow: hidden;
+            transition: 0.4s;
+        }
+
+        .brand-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--primary-gold);
+            box-shadow: 0 10px 30px rgba(212, 175, 55, 0.2);
+        }
+
+        .brand-card img {
+            width: 100%;
+            display: block;
+        }
+
+        .label {
+            padding: 15px;
+            font-size: 14px;
+            color: var(--primary-gold);
+            letter-spacing: 1px;
+        }
+    </style>
+</head>
+<body>
+
+    <a href="index.html" class="back-link">← Back to Boutique</a>
+    <h1>Brand Recognition</h1>
+
+    <div class="gallery-grid">
+        <div class="brand-card">
+            <img src="brand1.png" alt="Sankari Saajghar Heritage">
+            <div class="label">Heritage Artistry</div>
+        </div>
+
+        <div class="brand-card">
+            <img src="brand2.png" alt="Sankari Saajghar Festive">
+            <div class="label">Festive Elegance</div>
+        </div>
+
+        <div class="brand-card">
+            <img src="brand3.png" alt="Sankari Saajghar Collection">
+            <div class="label">Premium Collection</div>
+        </div>
+    </div>
+
+    <footer style="margin-top: 80px; color: #555; font-size: 12px;">
+        © 2026 Sankari Saajghar | Trademark Visuals
+    </footer>
+
+</body>
+</html>
